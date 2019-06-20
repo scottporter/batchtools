@@ -65,5 +65,5 @@ makeClusterFunctionsSASGSUB = function(template = "sasgsub", scheduler.latency =
     cfKillJob(reg, "sasgsub -KILLGRIDJOB", batch.id)
   }
 
-  makeClusterFunctions(name = "SASGSUB", submitJob = submitJob, killJob = killJob, listJobs = listJobs, store.job.collection = TRUE, scheduler.latency = scheduler.latency, fs.latency = fs.latency)
+  makeClusterFunctions(name = "SASGSUB", submitJob = submitJob, killJob = killJob, store.job.collection = TRUE, scheduler.latency = scheduler.latency, fs.latency = fs.latency)
 } # nocov end
