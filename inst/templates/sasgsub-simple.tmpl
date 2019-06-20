@@ -1,0 +1,15 @@
+## Default resources can be set in your .batchtools.conf.R by defining the variable
+## 'default.resources' as a named list.
+
+#sasgsub -GRIDJOBNAME  <%= job.name %>                             # Name of the job
+#sasgsub -GRIDJOBOPTS  <%= resources$queue %>                      # Job queue
+#sasgsub -GRIDWAITTIMEOUT <%= resources$walltime %>                # Walltime (batchtools uses seconds)
+
+## Export value of DEBUGME environemnt var to slave
+export DEBUGME=<%= Sys.getenv("DEBUGME") %>
+
+<%= sprintf("export OMP_NUM_THREADS=%i", resources$omp.threads) -%>
+<%= sprintf("export OPENBLAS_NUM_THREADS=%i", resources$blas.threads) -%>
+<%= sprintf("export MKL_NUM_THREADS=%i", resources$blas.threads) -%>
+
+Rscript -e 'batchtools::doJobCollection("<%= uri %>")'
