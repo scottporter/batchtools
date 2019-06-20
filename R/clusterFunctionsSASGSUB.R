@@ -23,7 +23,7 @@
 #' @return [\code{\link{ClusterFunctions}}].
 #' @family ClusterFunctions
 #' @export
-makeClusterFunctionsLSF = function(template = "sasgsub", scheduler.latency = 1, fs.latency = 65) { # nocov start
+makeClusterFunctionsSASGSUB = function(template = "sasgsub", scheduler.latency = 1, fs.latency = 65) { # nocov start
   template = findTemplateFile(template)
   if (testScalarNA(template))
     stopf("Argument 'template' (=\"%s\") must point to a readable template file or contain the template itself as string (containing at least one newline)", template)
